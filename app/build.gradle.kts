@@ -43,8 +43,12 @@ tasks.shadowJar {
         exclude(dependency("org.jetbrains.kotlin:kotlin-reflect:.*"))
     }
     doLast {
+        val propertiesFile = project.rootProject.file("local.properties")
+        if (!propertiesFile.exists()) {
+            return@doLast
+        }
         val targetPath = Properties().apply {
-            load(project.rootProject.file("local.properties").inputStream())
+            load(propertiesFile.inputStream())
         }.getProperty("target_path") ?: return@doLast
         copy {
             from(archiveFile)

@@ -1,0 +1,22 @@
+[versions]
+compose = "1.6.2"
+compose-plugin = "1.6.0"
+junit = "4.13.2"
+kotlin = "1.9.22"
+
+[libraries]
+clikt = { module = "com.github.ajalt.clikt:clikt", version = "4.3.0" }
+poet = { module = "com.squareup:kotlinpoet", version = "1.16.0" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version = "2.16.1" }
+jackson-xml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml", version = "2.16.1" }
+
+[plugins]
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+shadowJar = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
